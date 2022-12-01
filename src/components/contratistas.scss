@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.worker{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    gap: 10px;
+    &__logo{
+        img{
+            width: 100px;
+            height: 100px;
+        }
+    }
+    &__buttons{
+        display: flex;
+        justify-content: space-between;
+    }
+}
