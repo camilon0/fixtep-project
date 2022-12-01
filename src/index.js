@@ -1,12 +1,8 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Contratistas from "./components/Contratistas";
 
+import Router from "./routes/Router";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <Contratistas />
-  </React.StrictMode>
-);
+root.render(<Router />);
