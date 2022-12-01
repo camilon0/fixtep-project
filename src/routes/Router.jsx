@@ -1,73 +1,20 @@
-import { onAuthStateChanged } from "firebase/auth";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navigation from "../components/home/Navigation";
-//import NavigationBar from "../components/home/NavigationBar";
-import Login from "../components/loginAndRegister/Login";
-import Register from "../components/loginAndRegister/Register";
-import { auth } from "../Firebase/firebaseConfig";
-import { actionLoginAsync } from "../redux/actions/userActions";
-//import { actionLoginAsync } from "../redux/actions/userActions";
-import DashboardRouter from "./DashboardRouter";
-import PrivateRouter from "./PrivateRouter";
-import PublicRouter from "./PublicRouter";
+import Contratistas from "../components/Contratistas";
+import DetalleContratista from "../components/DetalleContratista";
+import Home from "../components/home/Home";
+
+import LoginAdmin from "../components/LoginAdmin";
 
 const Router = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(undefined);
-  const [check, setCheck] = useState(true);
-  const userStore = useSelector((store) => store.userStore);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user?.uid) {
-        setIsLoggedIn(true);
-        if (Object.entries(userStore).length === 0) {
-          const {
-            displayName,
-            email,
-            phoneNumber,
-            accessToken,
-            photoURL,
-            uid,
-          } = user.auth.currentUser;
-          dispatch(
-            actionLoginAsync({
-              name: displayName,
-              email,
-              accessToken,
-              phoneNumber,
-              avatar: photoURL,
-              uid,
-              error: false,
-            })
-          );
-        }
-      } else {
-        setIsLoggedIn(false);
-      }
-      setCheck(false);
-    });
-  }, [setIsLoggedIn, dispatch, userStore]);
-
-  if (check) {
-    return <h1>Waiting....</h1>;
-  }
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<PublicRouter isAutentication={isLoggedIn} />}>
-          <Route path="/Register" element={<Register />} />
-          <Route path="/" element={<Login />} />
-        </Route>
-
-        <Route element={<PrivateRouter isAutentication={isLoggedIn} />}>
-          <Route path="/*" element={<DashboardRouter />} />
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/Details" element={<DetalleContratista />} />
+        <Route path="/servicios" element={<Contratistas />} />
+        <Route path="/Login" element={<LoginAdmin />} />
       </Routes>
-      <Navigation isAutentication={isLoggedIn} />
     </BrowserRouter>
   );
 };
