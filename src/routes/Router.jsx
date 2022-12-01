@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Contratistas from "../components/Contratistas";
-import DetalleContratista from "../components/DetalleContratista";
+import Contratistas from "../components/contratistas/Contratistas";
+import DetalleContratista from "../components/contratistas/DetalleContratista";
 import Home from "../components/home/Home";
 import Navbar from "../components/home/Navbar";
 
@@ -13,9 +13,9 @@ const Router = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/details" element={<DetalleContratista />} />
-        <Route path="/contratistas" element={<Contratistas />} />
-        <Route path="/login" element={<LoginAdmin />} />
+        <Route path="/Details" element={<DetalleContratista />} />
+        <Route path="/servicios" element={<Contratistas />} />
+        <Route path="/Login" element={<LoginAdmin />} />
       </Routes>
     </BrowserRouter>
   );
