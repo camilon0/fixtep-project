@@ -12,7 +12,7 @@ export const categoryWorker = [
       value: 3,
     },
     {
-      label: "nn",
+      label: "Electricista",
       value: 4,
     }
   ];
