@@ -1,13 +1,32 @@
 import React from "react";
+import Card from 'react-bootstrap/Card';
 
 const DetalleContratista = () => {
   return (
-    <div>
-      <div>Nav</div>
-      <div>foto del contratista</div>
-      <div>numero de trabajos realizados</div>
-      <div>descripcion detallada</div>
-      <div>fotos de ejemplo de algunos trabajos</div>
+    <div className="details">
+       <Card className="details__card" style={{ width: '14rem' }}>
+          <Card.Img  variant="top" src="https://previews.123rf.com/images/dolgachov/dolgachov1610/dolgachov161012005/64860816-profesi%C3%B3n-carpinter%C3%ADa-ebanister%C3%ADa-y-el-concepto-de-la-gente-carpintero-con-tablones-de-madera-martil.jpg" />
+          <Card.Body>
+            <Card.Title>Pepito Perez</Card.Title>
+            <Card.Text>
+            Experiencias : 6 años 
+        </Card.Text>
+        <Card.Text>
+           Contacto: 3023456789
+        </Card.Text>
+          </Card.Body>
+        </Card>
+      <div className="details__work">
+      <Card style={{ width: '14rem' }}>
+          <Card.Img  variant="top" src="https://previews.123rf.com/images/dolgachov/dolgachov1610/dolgachov161012005/64860816-profesi%C3%B3n-carpinter%C3%ADa-ebanister%C3%ADa-y-el-concepto-de-la-gente-carpintero-con-tablones-de-madera-martil.jpg" />
+        </Card>
+        <Card style={{ width: '14rem' }}>
+          <Card.Img  variant="top" src="https://previews.123rf.com/images/dolgachov/dolgachov1610/dolgachov161012005/64860816-profesi%C3%B3n-carpinter%C3%ADa-ebanister%C3%ADa-y-el-concepto-de-la-gente-carpintero-con-tablones-de-madera-martil.jpg" />
+        </Card>
+        <Card style={{ width: '14rem' }}>
+          <Card.Img  variant="top" src="https://previews.123rf.com/images/dolgachov/dolgachov1610/dolgachov161012005/64860816-profesi%C3%B3n-carpinter%C3%ADa-ebanister%C3%ADa-y-el-concepto-de-la-gente-carpintero-con-tablones-de-madera-martil.jpg" />
+        </Card>
+      </div>
     </div>
   );
 };
