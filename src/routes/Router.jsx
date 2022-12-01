@@ -13,9 +13,9 @@ const Router = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Details" element={<DetalleContratista />} />
-        <Route path="/servicios" element={<Contratistas />} />
-        <Route path="/Login" element={<LoginAdmin />} />
+        <Route path="/details" element={<DetalleContratista />} />
+        <Route path="/contratistas" element={<Contratistas />} />
+        <Route path="/login" element={<LoginAdmin />} />
       </Routes>
     </BrowserRouter>
   );
