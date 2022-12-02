@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { workerReducer } from "../reducers/workerReducer";
 
 const reducer = {
-    worker: workerReducer,
+    contratistaStore: workerReducer,
 };
 
 const store = configureStore({

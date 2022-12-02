@@ -19,6 +19,16 @@
         display: flex;
         justify-content: space-between;
     }
+    &__card{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        flex-wrap: wrap;
+
+        &__image{
+            height: 70px;
+        }
+    }
 }
 
 .details{

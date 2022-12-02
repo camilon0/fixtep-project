@@ -20,7 +20,7 @@ const Contratistas = () => {
     dispatch(actionGetWorkerAsync());
 }, [dispatch])
 
-  const { contratista } = useSelector(store => store.worker);
+  const { contratista } = useSelector((store) => store.contratistaStore);
   console.log(contratista)
 
   return (
@@ -35,12 +35,12 @@ const Contratistas = () => {
         ))
         }
       </div>
-      <div>
+      <div className="worker__card">
         {
           contratista && contratista.length ? (
             contratista.map((item, index) => (
               <Card style={{ width: '11rem' }} key={index}>
-                <Card.Img variant="top" src={item.image} />
+                <Card.Img className="worker__image" variant="top" src={item.image} />
                 <Card.Body>
                   <Card.Title>{item.profession}</Card.Title>
                   <Button onClick={details} variant="primary">Detalles</Button>

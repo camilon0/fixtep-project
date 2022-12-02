@@ -8,27 +8,28 @@ export const actionGetWorkerAsync = () => {
     return async (dispatch) => {
         const workerCollection = collection(database, collectionName);
         const querySnapshot = await getDocs(workerCollection);
-        const worker = [];
+        const contratista = [];
         try {
             querySnapshot.forEach((doc) => {
-                worker.push({
+                contratista.push({
                     id: doc.id,
                     ...doc.data()
                 });
             });
+            console.log(contratista);
         } catch (error) {
             console.log(error);
         }finally{
-            dispatch(actionGetWorkerSync(worker));
+            dispatch(actionGetWorkerSync(contratista));
         }
     }
 }
 
-const actionGetWorkerSync = (worker) => {
+const actionGetWorkerSync = (contratista) => {
     return {
         type: workerTypes.GET_WORKER,
         payload: {
-            worker: worker
+            contratista: contratista
         }
     }
 }
