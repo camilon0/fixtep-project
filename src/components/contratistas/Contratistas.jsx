@@ -6,7 +6,7 @@ import logo from '../../assets/fixtep.svg'
 import './contratistas.scss';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { actionGetWorkerAsync } from "../../redux/actions/workerAction";
+import { actionFilterWorkerAsync, actionGetWorkerAsync } from "../../redux/actions/workerAction";
 // https://previews.123rf.com/images/dolgachov/dolgachov1610/dolgachov161012005/64860816-profesi%C3%B3n-carpinter%C3%ADa-ebanister%C3%ADa-y-el-concepto-de-la-gente-carpintero-con-tablones-de-madera-martil.jpg
 
 const Contratistas = () => {
@@ -23,15 +23,27 @@ const Contratistas = () => {
   const { contratista } = useSelector((store) => store.contratistaStore);
   console.log(contratista)
 
+  const onFiltered = (searchValue) => {
+    const searchParam = "profession";
+    dispatch(actionFilterWorkerAsync(searchParam, searchValue));
+  };
+
   return (
     <div className="worker">
-      <div className="worker__logo">
-        <img src={logo} alt="s" />
-      </div>
       <div className="worker__buttons">
+      <Button
+        onClick={() => {
+          dispatch(actionGetWorkerAsync());
+        }}
+        variant="warning"
+      >
+        Todos
+      </Button>
         {categoryWorker.map((item) => (
           // <button key={item.value}>{item.label}</button>
-          <Button variant="warning" key={item.value}>{item.label}</Button>
+          <Button    onClick={() => {
+            onFiltered(item.label);
+          }} variant="warning" key={item.value}>{item.label}</Button>
         ))
         }
       </div>

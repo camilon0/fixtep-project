@@ -33,3 +33,33 @@ const actionGetWorkerSync = (contratista) => {
         }
     }
 }
+
+export const actionFilterWorkerAsync = (searchParam, searchValue) => {
+    return async (dispatch) =>{
+        const workerCollection = collection(database, collectionName);
+        const q = query(workerCollection, where(searchParam, "==", searchValue));
+        const contratista = [];
+        try {
+            const querySnapshot = await getDocs(q);
+            querySnapshot.forEach((doc) =>{
+                contratista.push({
+                    id: doc.id,
+                    ...doc.data(),
+                });
+            });
+        } catch (error) {
+            console.log(error);
+        }finally{
+            dispatch(actionFilterWorkerSync(contratista))
+        }
+    };
+};
+
+const actionFilterWorkerSync = (contratista) => {
+    return{
+        type: workerTypes.FILTERED_WORKER,
+        payload: {
+            contratista: contratista,
+        },
+    };
+};
