@@ -20,3 +20,19 @@
         justify-content: space-between;
     }
 }
+
+.details{
+background-color: gray;
+display: flex;
+flex-direction: column;
+&__card{
+   margin: 0 auto;
+}
+&__work{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 20px;
+    
+}
+}
