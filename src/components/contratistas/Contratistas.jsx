@@ -51,11 +51,11 @@ const Contratistas = () => {
         {
           contratista && contratista.length ? (
             contratista.map((item, index) => (
-              <Card style={{ width: '11rem' }} key={index}>
+              <Card style={{ width: '11rem' }} key={index} >
                 <Card.Img className="worker__image" variant="top" src={item.image} />
                 <Card.Body>
                   <Card.Title>{item.profession}</Card.Title>
-                  <Button onClick={details} variant="primary">Detalles</Button>
+                  <Button onClick={() => { navigate(`/details/${item.name}`) }} variant="primary">Detalles</Button>
                 </Card.Body>
               </Card>
             ))
