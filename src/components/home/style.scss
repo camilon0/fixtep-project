@@ -1,3 +1,23 @@
 .Nav {
+  display: flex;
   background-color: aqua;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+
+  .left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  .right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
