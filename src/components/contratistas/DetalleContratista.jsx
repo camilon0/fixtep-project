@@ -25,18 +25,18 @@ const DetalleContratista = () => {
     <div className="details">
       {
         infoWorker ? (
-          <Card className="details__card" style={{ width: '14rem' }}>
-            <Card.Img variant="top" src={infoWorker.image} />
-            <Card.Body>
-              <Card.Title>{infoWorker.name}</Card.Title>
-              <Card.Text>
+          <article className="details__card">
+            <img src={infoWorker.image} />
+            <div className="info">
+              <span>{infoWorker.name}</span>
+              <span>
                 Experiencia : {infoWorker.expertise}
-              </Card.Text>
-              <Card.Text>
+              </span>
+              <span>
                 Contacto: {infoWorker.phone}
-              </Card.Text>
-            </Card.Body>
-          </Card>
+              </span>
+            </div>
+          </article>
         ) : (
           <div>no haz seleccionado un contratista</div>
         )

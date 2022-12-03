@@ -35,7 +35,7 @@ const Contratistas = () => {
         onClick={() => {
           dispatch(actionGetWorkerAsync());
         }}
-        variant="warning"
+        variant="secondary"
       >
         Todos
       </Button>
@@ -43,7 +43,7 @@ const Contratistas = () => {
           // <button key={item.value}>{item.label}</button>
           <Button    onClick={() => {
             onFiltered(item.label);
-          }} variant="warning" key={item.value}>{item.label}</Button>
+          }} variant="secondary" key={item.value}>{item.label}</Button>
         ))
         }
       </div>
@@ -51,20 +51,16 @@ const Contratistas = () => {
         {
           contratista && contratista.length ? (
             contratista.map((item, index) => (
-              <Card style={{ width: '11rem' }} key={index} >
-                <Card.Img className="worker__image" variant="top" src={item.image} />
-                <Card.Body>
-                  <Card.Title>{item.profession}</Card.Title>
-                  <Button onClick={() => { navigate(`/details/${item.name}`) }} variant="primary">Detalles</Button>
-                </Card.Body>
-              </Card>
+              <article className="description" onClick={() => { navigate(`/details/${item.name}`) }} key={index} >
+                <img  src={item.image} />
+                  <h4>{item.profession}</h4>
+              </article>
             ))
           ) : (
             <div>no hay contratistas</div>
           )
         }
       </div>
-      <div>footer</div>
     </div>
   );
 };
